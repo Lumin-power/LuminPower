@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход в аккаунт</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      max-width: 440px;
+      padding: 40px 36px;
+      transition: transform 0.2s ease;
+    }
+
+    .login-card:hover {
+      transform: translateY(-4px);
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 32px;
+      border-left: 3px solid #667eea;
+      padding-left: 12px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      outline: none;
+      transition: all 0.2s;
+      background-color: #f9f9fc;
+    }
+
+    .input-field:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+      background-color: white;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0 28px;
+      font-size: 14px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .checkbox input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #667eea;
+    }
+
+    .forgot-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      width: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-bottom: 24px;
+    }
+
+    button:hover {
+      opacity: 0.92;
+      transform: scale(1.01);
+      box-shadow: 0 10px 20px -8px rgba(102, 126, 234, 0.4);
+    }
+
+    .signup-prompt {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .signup-prompt a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .signup-prompt a:hover {
+      text-decoration: underline;
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+    }
+
+    .back-home:hover {
+      color: #667eea;
+    }
+
+    .error-msg {
+      background: #ffe6e6;
+      color: #d32f2f;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h1>Добро пожаловать</h1>
+    <div class="subtitle">Войдите, чтобы продолжить</div>
+
+    <div id="errorMessage" class="error-msg"></div>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Логин или email</label>
+        <input type="text" id="username" class="input-field" placeholder="ivan@example.com" autocomplete="username">
+      </div>
+
+      <div class="input-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" class="input-field" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <div class="options">
+        <label class="checkbox">
+          <input type="checkbox" id="remember"> Запомнить меня
+        </label>
+        <a href="#" class="forgot-link">Забыли пароль?</a>
+      </div>
+
+      <button type="submit">Войти</button>
+    </form>
+
+    <div class="signup-prompt">
+      Нет аккаунта? <a href="#">Зарегистрироваться</a>
+    </div>
+    <a href="index.html" class="back-home">← На главную</a>
+  </div>
+
+  <script>
+    // Демонстрационная обработка формы (без реального бэкенда)
+    // В реальном проекте вы замените action, метод и удалите этот скрипт или оставите валидацию
+    const form = document.getElementById('loginForm');
+    const errorDiv = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Отменяем отправку на сервер (для демо)
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const remember = document.getElementById('remember').checked;
+
+      // Простейшая проверка
+      if (!username || !password) {
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = '❌ Пожалуйста, заполните и логин, и пароль.';
+        return;
+      }
+
+      errorDiv.style.display = 'none';
+
+      // Имитация успешного входа (можно убрать и реально отправить на сервер)
+      alert(`Успешный вход!\nЛогин: ${username}\nЗапомнить: ${remember ? 'Да' : 'Нет'}\n\n(В реальном проекте здесь будет редирект или POST-запрос)`);
+      
+      // Если хотите действительно отправить данные на сервер, раскомментируйте следующие строки:
+      // form.method = 'POST';
+      // form.action = '/login';   // или '/api/login'
+      // form.submit();
+      
+      // Либо перенаправьте пользователя на личный кабинет
+      // window.location.href = '/dashboard';
+    });
+
+    // Просто для красоты: убираем ошибку при начале ввода
+    const inputs = document.querySelectorAll('.input-field');
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        errorDiv.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

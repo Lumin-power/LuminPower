@@ -1,0 +1,83 @@
+<div id="errorMessage" style="display: none; color: #d32f2f; background: #ffe6e6; padding: 10px; border-radius: 8px; margin-bottom: 15px;"></div>
+
+    <form id="registerForm">
+      <div class="input-group">
+        <label for="username">Имя пользователя (Логин)</label>
+        <input type="text" id="username" class="input-field" placeholder="Уникальный логин" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="input-field" placeholder="ivan@luminpower.com" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" class="input-field" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" id="submitBtn">Зарегистрироваться</button>
+    </form>
+
+    <script>
+    const form = document.getElementById('registerForm');
+    const errorDiv = document.getElementById('errorMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Перехватываем событие отправки формы
+    form.addEventListener('submit', async function(event) {
+      // КРИТИЧЕСКИ ВАЖНО: останавливаем стандартную перезагрузку страницы браузером
+      event.preventDefault(); 
+
+      // Собираем значения, которые ввел пользователь
+      const usernameInput = document.getElementById('username').value.trim();
+      const emailInput = document.getElementById('email').value.trim();
+      const passwordInput = document.getElementById('password').value.trim();
+
+      // Блокируем кнопку на время отправки запроса
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Отправка...';
+      errorDiv.style.display = 'none';
+
+      // Формируем JSON-объект, который ожидает наш Java-контроллер
+      const payload = {
+          username: usernameInput,
+          email: emailInput,
+          password: passwordInput
+      };
+
+      try {
+          // Асинхронный HTTP POST запрос к нашему микросервису
+          const response = await fetch('http://localhost:8080/api/users/register', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(payload)
+          });
+
+          // Читаем ответ от сервера (мы отправляли String из Java)
+          const data = await response.text();
+
+          // Проверяем HTTP статус ответа (200 OK)
+          if (response.ok) {
+              alert('Регистрация успешна! Ответ сервера: ' + data);
+              form.reset(); // Очищаем поля формы
+              // В реальном проекте тут обычно делают: window.location.href = 'login.html';
+          } else {
+              // Если сервер вернул ошибку (например, 400 или 500)
+              errorDiv.style.display = 'block';
+              errorDiv.textContent = 'Ошибка сервера: ' + data;
+          }
+      } catch (error) {
+          // Сработает, если Java-сервер выключен (проблема с сетью/CORS)
+          errorDiv.style.display = 'block';
+          errorDiv.textContent = '❌ Не удалось подключиться к серверу. Проверьте, запущен ли Java микросервис.';
+          console.error('Fetch error:', error);
+      } finally {
+          // Разблокируем кнопку в любом случае (и при успехе, и при ошибке)
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Зарегистрироваться';
+      }
+    });
+  </script>
