@@ -32,17 +32,17 @@
     position: fixed; /* Фиксируем поверх всего сайта */
     top: 0;
     left: -250px; /* Прячем её ровно на её ширину за левый край экрана */
-    background-color: #222;
+    background-color: #0b2e59;
     padding-top: 60px;
     transition: 0.3s ease; /* Плавная анимация выезда за 0.3 секунды */
     z-index: 1000;
 }
 
 .side-panel a {
-    padding: 15px 25px;
+    padding: 15px 30px;
     text-decoration: none; 
     font-size: 20px;
-    color: white;
+    color: #f28b0f;
     display: block; 
     transition: 0.2s;
 }
@@ -70,6 +70,14 @@
 .side-panel.open {
     left: 0; 
 }
+
+
+
+
+
+
+
+
 
 /* --- ГЛАВНАЯ ШАПКА --- */
 .header {
@@ -174,6 +182,72 @@
     outline: none;
 }
 
+
+
+
+/* --- ОСНОВНОЙ КОНТЕНТ (MAIN) --- */
+main {
+    font-family: 'Arial', sans-serif;
+}
+
+/* --- HERO SECTION (ГЛАВНЫЙ ЭКРАН) --- */
+.hero {
+    /* Накладываем синий градиент с прозрачностью 0.7 поверх картинки */
+    background-image: linear-gradient(rgba(11, 46, 89, 0.7), rgba(11, 46, 89, 0.7)), url('../images/solarPanels.png');
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Занимает 80% высоты экрана пользователя */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 900px; /* Ограничиваем ширину текста, чтобы он не разъезжался на широких мониторах */
+}
+
+.hero-title {
+    font-size: 46px;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin: 0 0 40px 0;
+    color: #d1dcf0; /* Светло-голубой для мягкого контраста */
+    line-height: 1.5;
+}
+
+/* Главная кнопка */
+.btn-primary {
+    display: inline-block;
+    background-color: #f28b0f;
+    color: #ffffff;
+    padding: 16px 36px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #d17508;
+    transform: translateY(-2px); /* Кнопка слегка приподнимается при наведении */
+}
+
+
+
+
+
+
+
+
 /* --- ФУТЕР --- */
 .footer {
     background-color: #0b2e59; 
@@ -230,6 +304,10 @@
     color: #d1dcf0; 
 }
 
+.footer-section .contact-phone a {
+    display: block;
+}
+
 
 .footer .phone {
     color: #ffffff;
@@ -250,4 +328,9 @@
     max-width: 150px;
     flex-wrap: wrap;
     gap: 15px;
+}
+
+.footer-brand .main-logo,
+.footer-brand .brand-name {
+    cursor: default;
 }
