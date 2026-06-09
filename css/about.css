@@ -5,8 +5,189 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
+
+/* .brand {
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.main-logo {
+    height: 200px;
+    width: 200px;
+    background-image: url('../images/logo_photo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.brand-name {
+    font-size: 32px; 
+    font-weight: bold; 
+    margin: 0; 
+    color: #333; 
+} */
+
+.side-panel {
+    height: 100vh;
+    width: 250px; 
+    position: fixed; /* Фиксируем поверх всего сайта */
+    top: 0;
+    left: -250px; /* Прячем её ровно на её ширину за левый край экрана */
+    background-color: #0b2e59;
+    padding-top: 60px;
+    transition: 0.3s ease; /* Плавная анимация выезда за 0.3 секунды */
+    z-index: 1000;
+}
+
+.side-panel a {
+    padding: 15px 30px;
+    text-decoration: none; 
+    font-size: 20px;
+    color: #f28b0f;
+    display: block; 
+    transition: 0.2s;
+}
+
+
+
+.side-panel a:hover {
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+/* Кнопка "Крестик" */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Специальный класс, который будет выдвигать панель на экран */
+.side-panel.open {
+    left: 0; 
+}
+
+
+
+
+
+
+
+
+
+/* --- ГЛАВНАЯ ШАПКА --- */
+.header {
+    background-color: #ffffff; 
+    height: 90px;
+    display: flex;
+    justify-content: space-between; /* Расталкиваем левую и правую части по краям */
+    align-items: center;
+    padding: 0 40px; /* Отступы по бокам */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень снизу */
+    font-family: 'Arial', sans-serif; /* Базовый шрифт */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.main-logo {
+    height: 60px; 
+    width: 60px;
+    background-image: url('../images/logo_photo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.brand-name {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0; /* зачем margin 0*/
+    color: #0b2e59; 
+    cursor: pointer;
+}
+
+.brand-name::after {
+    content: '';
+    position: relative;
+    left: 2px;
+    border: 6px solid transparent;
+    border-top-color: #888;
+}
+
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+}
+
+
+.contact-phone {
+    display: block; 
+}
+.phone {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 2px 0;  
+}
+
+
+.social-link a {
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.social-link img {
+    transition: transform 0.2s;
+}
+
+.social-link a:hover img {
+    transform: scale(1.2); 
+}
+
+.consultation-btn {
+    background-color: #f28b0f; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.consultation-btn:hover {
+    background-color: #d17508; 
+}
+
+
+.lang-select {
+    background-color: transparent;
+    border: 2px solid #0b2e59; 
+    color: #0b2e59;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
 
 body {
     font-family: "Segoe UI", sans-serif;

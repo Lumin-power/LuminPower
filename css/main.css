@@ -621,8 +621,8 @@ main {
 }
 
 /* Сюда ты потом подставишь пути к реальным фотографиям */
-.img-1 { background-image: url('../images/project1.jpg'); }
-.img-2 { background-image: url('../images/project2.jpg'); }
+.img-1 { background-image: url('../images/project_1.jpg'); }
+.img-2 { background-image: url('../images/project_2.jpg'); }
 
 .project-info {
     padding: 30px;
@@ -719,9 +719,9 @@ main {
 }
 
 /* Заглушки для фото товаров */
-.prod-1 { background-image: url('../images/prod1.jpg'); }
-.prod-2 { background-image: url('../images/prod2.jpg'); }
-.prod-3 { background-image: url('../images/prod3.jpg'); }
+.prod-1 { background-image: url('../images/hybrid_inverter_deye_8kv.jfif'); }
+.prod-2 { background-image: url('../images/solap_panel_Jinko.jfif'); }
+.prod-3 { background-image: url('../images/battery_pylontech_US2000C.jfif'); }
 
 .product-info {
     padding: 25px;
@@ -795,9 +795,9 @@ main {
 }
 
 /* Заглушки для фото статей */
-.art-1 { background-image: url('../images/art1.jpg'); }
-.art-2 { background-image: url('../images/art2.jpg'); }
-.art-3 { background-image: url('../images/art3.jpg'); }
+.art-1 { background-image: url('../images/arcticle_1.jpg'); }
+.art-2 { background-image: url('../images/arcticle_2.jpg'); }
+.art-3 { background-image: url('../images/arcticle_3.jpg'); }
 
 .article-info {
     padding: 30px;
