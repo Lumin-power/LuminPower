@@ -188,7 +188,9 @@
 /* --- ОСНОВНОЙ КОНТЕНТ (MAIN) --- */
 main {
     font-family: 'Arial', sans-serif;
+
 }
+
 
 /* --- HERO SECTION (ГЛАВНЫЙ ЭКРАН) --- */
 .hero {
@@ -244,6 +246,736 @@ main {
 
 
 
+
+
+/* --- УТИЛИТЫ (Общие классы для всех секций) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0; /* Просторные отступы сверху и снизу секции */
+}
+
+.bg-light {
+    background-color: #f0f4f8; /* Очень светлый сине-серый фон для разделения блоков */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    color: #0b2e59;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+
+
+
+/* --- СЕКЦИЯ 2: РЕШЕНИЯ (Сетка карточек) --- */
+.solutions-grid {
+    display: grid;
+    /* Магия Grid: автоматическая адаптация от 1 до 4 колонок */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.solution-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 4px solid transparent;
+}
+
+.solution-card:hover {
+    transform: translateY(-10px); /* Карточка всплывает вверх */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-bottom: 4px solid #f28b0f; /* Появляется оранжевая полоса */
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 20px; /*?*/
+}
+
+.solution-card h3 {
+    color: #0b2e59;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.solution-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+/* --- СЕКЦИЯ 3: СЕС ПОД КЛЮЧ (Шаги работы) --- */
+.steps-grid {
+    display: grid;
+    /* Делаем сетку из 3 колонок */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.step-item {
+    position: relative;
+    padding-left: 70px; /* Освобождаем место слева для кружочка с цифрой */
+}
+
+.step-number {
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 50px;
+    height: 50px;
+    background-color: #f28b0f;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Делаем идеальный круг */
+    box-shadow: 0 4px 10px rgba(242, 139, 15, 0.3);
+}
+
+.step-item h4 {
+    color: #0b2e59;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.step-item p {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+
+
+/* --- СЕКЦИЯ 4: МОНИТОРИНГ --- */
+.monitoring {
+    background-color: #0b2e59; /* Темний технологічний фон */
+    color: #ffffff;
+}
+
+.monitoring-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.monitoring-content, .monitoring-visual {
+    flex: 1; /* Обидва блоки займають рівно по 50% ширини */
+}
+
+/* Утиліти для тексту на темному фоні */
+.text-white { color: #ffffff !important; }
+.text-left { text-align: left !important; }
+.text-green { color: #4caf50; }
+
+.monitoring-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #d1dcf0;
+    margin-bottom: 30px;
+}
+
+/* Список переваг */
+.monitoring-features {
+    list-style: none; /* Прибираємо стандартні крапки */
+    padding: 0;
+    margin: 0 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.monitoring-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.check-icon {
+    background-color: #f28b0f;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0; /* Щоб іконка не стискалася, якщо тексту багато */
+}
+
+/* --- ВІЗУАЛІЗАЦІЯ ДАШБОРДА (Mockup) --- */
+.dashboard-mockup {
+    background-color: #1e1e1e; /* Темно-сірий колір панелі */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border: 1px solid #333;
+}
+
+.mockup-header {
+    background-color: #2d2d2d;
+    padding: 10px 15px;
+    display: flex;
+    gap: 8px;
+}
+
+/* Кнопки закрити/згорнути як у macOS */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.mockup-body {
+    padding: 30px;
+}
+
+.widget-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.widget {
+    flex: 1;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.widget-label {
+    font-size: 14px;
+    color: #888;
+}
+
+.widget-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.graph-placeholder {
+    background-color: #2a2a2a;
+    height: 150px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-style: italic;
+    border: 1px dashed #444;
+}
+
+
+
+
+/* --- СЕКЦИЯ 5: ПОЧЕМУ МЫ --- */
+.advantages {
+    background-color: #ffffff;
+}
+
+/* Стили для верхней текстовой части */
+.advantages-text-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px; /* Отступ до блока с цифрами */
+}
+
+.adv-text-item {
+    padding: 15px 0;
+}
+
+.adv-text-item h4 {
+    color: #0b2e59;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.adv-text-item p {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Стили для блока со статистикой */
+.stats-wrapper {
+    background-color: #0b2e59; /* Темно-синий фон, чтобы цифры выделялись */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 15px 30px rgba(11, 46, 89, 0.15);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+    position: relative;
+}
+
+/* Добавляем разделительные линии между цифрами (только для больших экранов) */
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: #f28b0f; /* Оранжевые цифры */
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* Отключаем разделительные полоски на мобильных телефонах, чтобы ничего не ломалось */
+@media (max-width: 768px) {
+    .stat-item:not(:last-child)::after {
+        display: none; 
+    }
+}
+
+
+
+
+
+/* --- СЕКЦИЯ 6: НАШИ ПРОЕКТЫ --- */
+.projects-grid {
+    display: grid;
+    /* Делаем так, чтобы карточки не были слишком узкими. На ПК их будет 2 в ряд */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 40px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Обрезаем углы у фотографии внутри карточки */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Легкое поднятие при наведении */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Настройки фотографий проектов */
+.project-img {
+    width: 100%;
+    height: 280px;
+    background-color: #ddd; /* Серый фон-заглушка, если фото еще нет */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Сюда ты потом подставишь пути к реальным фотографиям */
+.img-1 { background-image: url('../images/project1.jpg'); }
+.img-2 { background-image: url('../images/project2.jpg'); }
+
+.project-info {
+    padding: 30px;
+}
+
+.project-info h4 {
+    color: #0b2e59;
+    font-size: 22px;
+    margin: 0 0 20px 0;
+}
+
+/* Список характеристик в виде таблицы */
+.project-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-details li {
+    display: flex;
+    justify-content: space-between; /* Текст слева, значения справа */
+    font-size: 16px;
+    color: #555;
+    border-bottom: 1px dashed #eee; /* Легкая пунктирная линия между строками */
+    padding-bottom: 8px;
+}
+
+.project-details li strong {
+    color: #0b2e59;
+}
+
+/* Контурная кнопка */
+.center-btn {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: #f28b0f;
+    border: 2px solid #f28b0f;
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #f28b0f; /* При наведении кнопка заливается цветом */
+    color: #ffffff;
+}
+
+
+
+
+
+
+/* --- СЕКЦИЯ 7: МАГАЗИН --- */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Чтобы кнопка всегда была внизу, даже если текст разной длины */
+    background-color: #ffffff;
+}
+
+.product-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-color: transparent;
+}
+
+.product-img {
+    height: 220px;
+    background-color: #f9f9f9;
+    background-size: contain; /* contain лучше для товаров, чтобы они не обрезались */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Заглушки для фото товаров */
+.prod-1 { background-image: url('../images/prod1.jpg'); }
+.prod-2 { background-image: url('../images/prod2.jpg'); }
+.prod-3 { background-image: url('../images/prod3.jpg'); }
+
+.product-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h4 {
+    color: #0b2e59;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+.product-desc {
+    color: #666;
+    font-size: 14px;
+    flex-grow: 1; /* Растягивает текст, прижимая цену и кнопку к низу карточки */
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: 900;
+    color: #f28b0f;
+    margin-bottom: 20px;
+}
+
+/* Кнопка-контур для товаров */
+.btn-outline {
+    display: inline-block;
+    border: 2px solid #0b2e59;
+    color: #0b2e59;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: #0b2e59;
+    color: #ffffff;
+}
+
+/* --- СЕКЦИЯ 8: СТАТЬИ --- */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.article-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.article-img {
+    height: 200px;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Заглушки для фото статей */
+.art-1 { background-image: url('../images/art1.jpg'); }
+.art-2 { background-image: url('../images/art2.jpg'); }
+.art-3 { background-image: url('../images/art3.jpg'); }
+
+.article-info {
+    padding: 30px;
+}
+
+.article-date {
+    display: block;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.article-info h4 {
+    color: #0b2e59;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+.article-info p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Ссылка-стрелочка для чтения статьи */
+.read-more {
+    color: #f28b0f;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Расстояние между текстом и стрелочкой */
+    transition: gap 0.3s, color 0.3s;
+}
+
+.read-more:hover {
+    color: #d17508;
+    gap: 10px; /* Стрелочка элегантно отъезжает вправо при наведении */
+}
+
+
+
+
+
+/* --- СЕКЦИЯ 9: ПРИЗЫВ К ДЕЙСТВИЮ (CTA) --- */
+.cta-section {
+    background-color: #0b2e59;
+    color: #ffffff;
+}
+
+.cta-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.cta-content {
+    flex: 1; /* Левая часть занимает половину места */
+}
+
+.cta-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.cta-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #d1dcf0;
+    margin-bottom: 30px;
+}
+
+.cta-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cta-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+}
+
+/* Переиспользуем оранжевую галочку из секции Мониторинга */
+.cta-benefits .check-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+}
+
+/* --- СТИЛИ ЛИД-ФОРМЫ --- */
+.cta-form-block {
+    flex: 1;
+    max-width: 450px; /* Ограничиваем ширину формы, чтобы она не была огромной */
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    color: #333; /* Текст внутри формы делаем темным, так как фон белый */
+}
+
+.form-title {
+    font-size: 24px;
+    color: #0b2e59;
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Стили для инпутов (полей ввода) и селекта */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border-color 0.3s, background-color 0.3s;
+    box-sizing: border-box; /* Чтобы padding не ломал ширину */
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #f28b0f;
+    background-color: #ffffff;
+}
+
+/* Кнопка отправки на всю ширину формы */
+.btn-submit {
+    width: 100%;
+    background-color: #f28b0f;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #d17508;
+}
+
+.form-policy {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 15px;
+    line-height: 1.4;
+}
 
 
 

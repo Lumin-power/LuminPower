@@ -10,7 +10,7 @@
 <body>
     <div id="mySidePanel" class="side-panel">
         <button id="closeBtn" class="close-btn">&times;</button> 
-        <a href="/about">Про нас</a>
+        <a href="aboutus.html">Про нас</a>
         <a href="/articles">Статті</a>
         <a href="/prices">Цены</a>
         <a href="/account">Розрахунок</a>
@@ -66,11 +66,382 @@
 
 
 <main>
+    <!--HERO SECTION (ГЛАВНЫЙ ЭКРАН)-->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Проектування, монтаж та обслуговування сонячних електростанцій</h1>
             <p class="hero-subtitle">Повний цикл робіт: від підбору обладнання до підключення за зеленим тарифом та налаштування систем обліку.</p>
             <a href="#solutions" class="btn-primary">Переглянути рішення</a>
+        </div>
+    </section>
+
+     <!--СЕКЦИЯ 2: РЕШЕНИЯ (Сетка карточек)-->
+    <section id="solutions" class="solutions section-padding">
+        <div class="container">
+            <h2 class="section-title">Які рішення ми пропонуємо</h2>
+            <div class="solutions-grid">
+                
+                <div class="solution-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Мережеві СЕС</h3>
+                    <p>Оптимальне рішення для продажу надлишків електроенергії державі за «зеленим» тарифом та економії на власному споживанні.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🔋</div>
+                    <h3>Гібридні СЕС</h3>
+                    <p>Поєднання заробітку на генерації та повної автономності завдяки акумуляторним батареям на випадок відключення мережі.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🏕️</div>
+                    <h3>Автономні СЕС</h3>
+                    <p>Незалежне енергозабезпечення для об'єктів, віддалених від ліній електропередач. Повна відмова від зовнішніх мереж.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">📦</div>
+                    <h3>Поставка обладнання</h3>
+                    <p>Прямі поставки інверторів, сонячних фотомодулів, акумуляторів та систем кріплення від перевірених виробників.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--СЕКЦИЯ 3: СЕС ПОД КЛЮЧ (Шаги работы)-->
+    <section class="turnkey section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">СЕС під ключ: як ми працюємо</h2>
+            <div class="steps-grid">
+                
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h4>Консультація</h4>
+                    <p>Визначаємо ваші потреби, аналізуємо об'єкт та попередньо орієнтуємо по вартості та потужності.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h4>Розрахунок</h4>
+                    <p>Робимо 3D-моделювання даху, розраховуємо кути нахилу та прогнозовану генерацію станції.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h4>Підбір обладнання</h4>
+                    <p>Формуємо специфікацію: вибираємо оптимальні фотомодулі, стрингові інвертори та захисну автоматику.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h4>Монтаж</h4>
+                    <p>Встановлюємо профілі, надійно фіксуємо панелі, прокладаємо кабельні траси та виконуємо комутацію постійного струму.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <h4>Підключення</h4>
+                    <p>Налаштовуємо інвертор, тестуємо систему під навантаженням та допомагаємо з оформленням «зеленого» тарифу.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">6</div>
+                    <h4>Підтримка</h4>
+                    <p>Беремо об'єкт на сервісне обслуговування. Моніторинг роботи інвертора та стану мережі у реальному часі.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--СЕКЦИЯ 4: МОНИТОРИНГ-->
+    <section class="monitoring section-padding">
+        <div class="container monitoring-wrapper">
+            
+            <div class="monitoring-content">
+                <h2 class="section-title text-white text-left">Розумний облік та моніторинг</h2>
+                <p class="monitoring-desc">Отримайте повний контроль над вашою СЕС. Наша система дозволяє відстежувати ефективність роботи обладнання з будь-якої точки світу в режимі реального часу.</p>
+                
+                <ul class="monitoring-features">
+                    <li>
+                        <span class="check-icon">✓</span> 
+                        <div><strong>Реальний час:</strong> Графіки генерації та споживання електроенергії.</div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span> 
+                        <div><strong>Фінансова аналітика:</strong> Автоматичний розрахунок доходу за «зеленим» тарифом.</div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span> 
+                        <div><strong>Безпека:</strong> Миттєві сповіщення про стан інвертора та мережі.</div>
+                    </li>
+                </ul>
+                <a href="#demo" class="btn-primary">Спробувати демо-версію</a>
+            </div>
+
+            <div class="monitoring-visual">
+                <div class="dashboard-mockup">
+                    <div class="mockup-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="widget-row">
+                            <div class="widget">
+                                <span class="widget-label">Поточна потужність</span>
+                                <span class="widget-value">15.4 кВт</span>
+                            </div>
+                            <div class="widget">
+                                <span class="widget-label">Статус інвертора</span>
+                                <span class="widget-value text-green">Онлайн</span>
+                            </div>
+                        </div>
+                        <div class="graph-placeholder">
+                            <p>Тут буде графік генерації (JS + REST API)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!--СЕКЦИЯ 5: ПОЧЕМУ МЫ -->
+
+    <section class="advantages section-padding">
+        <div class="container">
+            <h2 class="section-title">Чому обирають нас</h2>
+            
+            <!-- Верхняя часть: Текстовые преимущества -->
+            <div class="advantages-text-grid">
+                <div class="adv-text-item">
+                    <h4>👷‍♂️ Власні бригади</h4>
+                    <p>Працюємо без посередників. Усі роботи виконують виключно штатні сертифіковані інженери.</p>
+                </div>
+                <div class="adv-text-item">
+                    <h4>🛡️ Офіційна гарантія</h4>
+                    <p>Надаємо до 10 років гарантії на інвертори та до 25 років на генерацію сонячних панелей.</p>
+                </div>
+                <div class="adv-text-item">
+                    <h4>📄 Супровід документів</h4>
+                    <p>Беремо на себе всю бюрократію для швидкого підключення об'єкта за «зеленим» тарифом.</p>
+                </div>
+                <div class="adv-text-item">
+                    <h4>🤝 24/7 Підтримка</h4>
+                    <p>Регулярний технічний аудит, моніторинг помилок мережі та оперативний сервіс.</p>
+                </div>
+            </div>
+
+            <!-- Нижняя часть: Блок с цифрами -->
+            <div class="stats-wrapper">
+                <div class="stats-grid">
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">років досвіду</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">реалізованих об'єктів</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">МВт встановлено</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">задоволених клієнтів</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 6: НАШИ ПРОЕКТЫ -->
+    <section class="projects section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Наші реалізовані проєкти</h2>
+            
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-img img-1"></div>
+                    <div class="project-info">
+                        <h4>Приватний будинок, 15 кВт</h4>
+                        <ul class="project-details">
+                            <li><span>📍 Місто:</span> <strong>Дніпро</strong></li>
+                            <li><span>⚙️ Тип:</span> <strong>Мережева СЕС</strong></li>
+                            <li><span>⚡ Потужність:</span> <strong>15 кВт</strong></li>
+                            <li><span>⏱ Термін монтажу:</span> <strong>3 дні</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img img-2"></div>
+                    <div class="project-info">
+                        <h4>Комерційний об'єкт, 30 кВт</h4>
+                        <ul class="project-details">
+                            <li><span>📍 Місто:</span> <strong>Дніпропетровська обл.</strong></li>
+                            <li><span>⚙️ Тип:</span> <strong>Гібридна СЕС</strong></li>
+                            <li><span>⚡ Потужність:</span> <strong>30 кВт</strong></li>
+                            <li><span>⏱ Термін монтажу:</span> <strong>5 днів</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="center-btn">
+                <a href="projects.html" class="btn-secondary">Подивитися ще проєкти</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="shop section-padding">
+        <div class="container">
+            <h2 class="section-title">Популярне обладнання</h2>
+            
+            <div class="shop-grid">
+                <div class="product-card">
+                    <div class="product-img prod-1"></div>
+                    <div class="product-info">
+                        <h4>Гібридний інвертор Deye 8 кВт</h4>
+                        <p class="product-desc">Однофазний інвертор SUN-8K-SG01LP1-EU. Ідеальне рішення для приватного будинку.</p>
+                        <div class="product-price">65 000 ₴</div>
+                        <a href="product.html" class="btn-outline">Детальніше</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img prod-2"></div>
+                    <div class="product-info">
+                        <h4>Сонячна панель Jinko Solar</h4>
+                        <p class="product-desc">Монокристалічна панель Tiger Neo N-type 54HL4-V потужністю 420 Вт.</p>
+                        <div class="product-price">3 800 ₴</div>
+                        <a href="product.html" class="btn-outline">Детальніше</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img prod-3"></div>
+                    <div class="product-info">
+                        <h4>Акумулятор Pylontech US2000C</h4>
+                        <p class="product-desc">Літій-залізо-фосфатна (LiFePO4) батарея на 2.4 кВт*год для систем резервного живлення.</p>
+                        <div class="product-price">32 500 ₴</div>
+                        <a href="product.html" class="btn-outline">Детальніше</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-btn">
+                <a href="shop.html" class="btn-primary">Перейти до каталогу</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- СЕКЦИЯ 7: МАГАЗИН -->
+    <section class="articles section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Корисні статті та відповіді на питання</h2>
+            
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-img art-1"></div>
+                    <div class="article-info">
+                        <span class="article-date">12 Червня 2026</span>
+                        <h4>Чи працюють сонячні панелі взимку?</h4>
+                        <p>Розбираємо популярний міф: реальні графіки генерації у грудні та січні на прикладі діючого об'єкту у місті Дніпро.</p>
+                        <a href="article.html" class="read-more">Читати статтю &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-img art-2"></div>
+                    <div class="article-info">
+                        <span class="article-date">05 Червня 2026</span>
+                        <h4>Як підключити «Зелений» тариф?</h4>
+                        <p>Покрокова інструкція з оформлення документів, вимоги до обладнання та терміни окупності станції.</p>
+                        <a href="article.html" class="read-more">Читати статтю &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-img art-3"></div>
+                    <div class="article-info">
+                        <span class="article-date">28 Травня 2026</span>
+                        <h4>Вибір акумуляторів: Gel чи LiFePO4?</h4>
+                        <p>Порівнюємо типи батарей для гібридних та автономних систем. Що вигідніше у довгостроковій перспективі?</p>
+                        <a href="article.html" class="read-more">Читати статтю &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-btn">
+                <a href="blog.html" class="btn-secondary">Всі статті</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- СЕКЦИЯ 9: ПРИЗЫВ К ДЕЙСТВИЮ (CTA) -->
+    <section class="cta-section section-padding">
+        <div class="container cta-wrapper">
+            
+            <!-- Левая часть: Маркетинговый текст -->
+            <div class="cta-content">
+                <h2 class="cta-title">Готові до енергонезалежності?</h2>
+                <p class="cta-desc">Залиште заявку, і наш головний інженер зв'яжеться з вами. Ми безкоштовно зробимо попередній прорахунок вартості, окупності (ROI) та підготуємо 3D-модель розміщення панелей на вашому даху.</p>
+                <ul class="cta-benefits">
+                    <li><span class="check-icon">✓</span> Точний підбір обладнання під ваш бюджет</li>
+                    <li><span class="check-icon">✓</span> Розрахунок реальної генерації за місяцями</li>
+                    <li><span class="check-icon">✓</span> Це абсолютно безкоштовно</li>
+                </ul>
+            </div>
+
+            <!-- Правая часть: Форма захвата (Лид-форма) -->
+            <div class="cta-form-block">
+                <form action="#" method="POST" class="lead-form">
+                    <h3 class="form-title">Отримати розрахунок</h3>
+                    
+                    <div class="form-group">
+                        <label for="userName">Ваше ім'я</label>
+                        <input type="text" id="userName" name="name" placeholder="Наприклад, Олександр" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userPhone">Номер телефону</label>
+                        <input type="tel" id="userPhone" name="phone" placeholder="+380 (__) ___-__-__" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objectType">Тип об'єкта</label>
+                        <select id="objectType" name="object_type">
+                            <option value="house">Приватний будинок</option>
+                            <option value="business">Комерційне підприємство</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Замовити розрахунок</button>
+                    <p class="form-policy">Натискаючи кнопку, ви погоджуєтеся з обробкою персональних даних.</p>
+                </form>
+            </div>
+
         </div>
     </section>
     
