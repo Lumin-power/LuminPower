@@ -1,0 +1,51 @@
+/* ===========================
+   УНІКАЛЬНІ СТИЛІ ДЛЯ СТОРІНКИ МАГАЗИНУ
+=========================== */
+
+.store-page {
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+/* --- ВЕРХНІЙ БЛОК --- */
+.store-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.store-hero p {
+    max-width: 750px;
+    margin: 0 auto;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* --- КНОПКИ КАТЕГОРІЙ --- */
+.store-categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* Щоб кнопки гарно переносилися на мобільних телефонах */
+}
+
+.category-btn {
+    padding: 10px 24px;
+    border: 2px solid #eaeaea;
+    border-radius: 30px; /* Робимо кнопки заокругленими (як таблетки) */
+    background-color: transparent;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Ефект при наведенні та активна кнопка */
+.category-btn:hover,
+.category-btn.active {
+    border-color: #f28b0f;
+    color: #f28b0f;
+    background-color: rgba(242, 139, 15, 0.05); /* Дуже легке оранжеве підсвічування фону */
+}

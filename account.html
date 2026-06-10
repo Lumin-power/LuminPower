@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcticles</title>
-    <link rel="stylesheet" href="css/arcticles.css">
+    <title>Account</title>
+    <link rel="stylesheet" href="css/account.css">
 </head>
 <body>
     
@@ -12,15 +12,13 @@
         <button id="closeBtn" class="close-btn">&times;</button> 
         <a href="index.html">На головну</a>
         <a href="aboutus.html">Про нас</a>
-        <a href="prices">Delete Цены</a>
-        <a href="/account">Розрахунок</a>
         <a href="/store">Магазин</a>
         <a href="login.html">Log in</a>
-        <a href="/support">Підтримка</a>
+        <!-- <a href="/support">Підтримка</a> -->
         
     </div>
 
-     <header class="header">
+<header class="header">
     <div id="logoTrigger" class="brand" title="Открыть меню">
         <div class="main-logo"></div> 
         <h1 class="brand-name">LuminPower</h1>
@@ -56,131 +54,103 @@
 </header>
 
 
+<main>
+    <section class="solar-calculator">
 
+    <div class="calculator-card">
 
+        <h2>Розрахунок сонячної електростанції</h2>
 
-<main class="articles-page">
-
-    <section class="articles-hero">
-
-        <h1>Полезные статьи</h1>
-
-        <p>
-            Новости солнечной энергетики,
-            советы по выбору оборудования
-            и ответы на популярные вопросы.
+        <p class="description">
+            Тут ви можете швидко розрахувати приблизну потужність майбутньої сонячної електростанції.
+            Якщо ви не знаєте площу даху або земельної ділянки, відкрийте карту та визначте її за допомогою інструментів Google Maps.
         </p>
 
-    </section>
-
-    <section class="articles-search">
-
-        <input
-            type="text"
-            placeholder="Поиск статьи..."
+        <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            class="map-link"
         >
+            Відкрити Google Maps
+        </a>
 
-    </section>
+        <div class="input-group">
+            <label for="area">
+                Площа ділянки (м²)
+            </label>
 
-    <section class="articles-grid">
-
-        <article class="article-card">
-
-            <img
-                src="images/article-1.jpg"
-                alt="Статья"
+            <input
+                type="number"
+                id="area"
+                placeholder="Наприклад: 120"
             >
+        </div>
 
-            <div class="article-content">
+        <button id="calculateBtn">
+            Розрахувати
+        </button>
 
-                <span class="article-date">
-                    15 июня 2026
-                </span>
+        <div class="result">
 
-                <h2>
-                    Чи працюють сонячні панелі взимку?
-                </h2>
-
-                <p>
-                    Розбираємо, як погодні умови
-                    впливають на продуктивність
-                    сонячних панелей у зимовий період.
-                </p>
-
-                <a href="article-winter.html">
-                    Детальніше →
-                </a>
-
+            <div class="result-item">
+                <span>Корисна площа:</span>
+                <strong id="usableArea">0 м²</strong>
             </div>
 
-        </article>
-
-        <article class="article-card">
-
-            <img
-                src="images/article-2.jpg"
-                alt="Статья"
-            >
-
-            <div class="article-content">
-
-                <span class="article-date">
-                    10 червня 2026
-                </span>
-
-                <h2>
-                    Як підключити «Зелений» тариф?
-                </h2>
-
-                <p>
-                    Покрокова інструкція для
-                    власників сонячних електростанцій.
-                </p>
-
-                <a href="green-tariff.html">
-                    Детальніше →
-                </a>
-
+            <div class="result-item">
+                <span>Кількість панелей:</span>
+                <strong id="panelCount">0</strong>
             </div>
 
-        </article>
-
-        <article class="article-card">
-
-            <img
-                src="images/article-3.jpg"
-                alt="Статья"
-            >
-
-            <div class="article-content">
-
-                <span class="article-date">
-                    5 червня 2026
-                </span>
-
-                <h2>
-                    Gel чи LiFePO4?
-                </h2>
-
-                <p>
-                    Порівнюємо популярні типи
-                    акумуляторів для СЕС.
-                </p>
-
-                <a href="battery-guide.html">
-                    Детальніше →
-                </a>
-
+            <div class="result-item">
+                <span>Потужність СЕС:</span>
+                <strong id="totalPower">0 кВт</strong>
             </div>
 
-        </article>
+        </div>
 
-    </section>
+    </div>
 
+</section>
 </main>
 
+<script>
+    const calculateBtn = document.getElementById("calculateBtn");
 
+calculateBtn.addEventListener("click", () => {
 
+    const area = Number(
+        document.getElementById("area").value
+    );
+
+    if (!area || area <= 0) {
+        alert("Введіть площу ділянки");
+        return;
+    }
+
+    const usefulArea = area * 0.95;
+
+    const panelArea = 2.3;
+
+    const panelPower = 0.6;
+
+    const panelCount = Math.floor(
+        usefulArea / panelArea
+    );
+
+    const totalPower =
+        panelCount * panelPower;
+
+    document.getElementById("usableArea").textContent =
+        usefulArea.toFixed(1) + " м²";
+
+    document.getElementById("panelCount").textContent =
+        panelCount;
+
+    document.getElementById("totalPower").textContent =
+        totalPower.toFixed(1) + " кВт";
+});
+</script>
 
 <footer class="footer">
     <div class="footer-container">

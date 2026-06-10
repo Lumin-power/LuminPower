@@ -11,12 +11,11 @@
     <div id="mySidePanel" class="side-panel">
         <button id="closeBtn" class="close-btn">&times;</button> 
         <a href="aboutus.html">Про нас</a>
-        <a href="arcticles.html">Статті</a>
-        <a href="prices">Delete Цены</a>
-        <a href="/account">Розрахунок</a>
-        <a href="/store">Магазин</a>
+        <a href="articles.html">Статті</a>
+        <a href="account.html">Розрахунок</a>
+        <a href="store.html">Магазин</a>
         <a href="login.html">Log in</a>
-        <a href="/support">Підтримка</a>
+        <!-- <a href="/support">Підтримка</a> -->
         
     </div>
 
@@ -55,9 +54,22 @@
         <button class="consultation-btn">Замовити консультацію</button>
 
         <select class="lang-select">
-            <option value="ua" selected>UA</option>
-            <option value="ru">RU</option>
-        </select>
+    <option value="uk" selected>UA</option>
+    <option value="ru">RU</option>
+</select>
+
+       <div id="google_translate_element" style="display: none;"></div>
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'uk', /* Рідна мова сайту */
+                includedLanguages: 'ru,uk', /* Які мови доступні */
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         
     </div>
 </header>
@@ -156,59 +168,49 @@
     </section>
 
     <!--СЕКЦИЯ 4: МОНИТОРИНГ-->
-    <section class="monitoring section-padding">
-        <div class="container monitoring-wrapper">
+    <!-- СЕКЦИЯ: КАЛЬКУЛЯТОР СЭС -->
+    <section class="calculator-section section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Розрахунок сонячної електростанції</h2>
             
-            <div class="monitoring-content">
-                <h2 class="section-title text-white text-left">Розумний облік та моніторинг</h2>
-                <p class="monitoring-desc">Отримайте повний контроль над вашою СЕС. Наша система дозволяє відстежувати ефективність роботи обладнання з будь-якої точки світу в режимі реального часу.</p>
-                
-                <ul class="monitoring-features">
-                    <li>
-                        <span class="check-icon">✓</span> 
-                        <div><strong>Реальний час:</strong> Графіки генерації та споживання електроенергії.</div>
-                    </li>
-                    <li>
-                        <span class="check-icon">✓</span> 
-                        <div><strong>Фінансова аналітика:</strong> Автоматичний розрахунок доходу за «зеленим» тарифом.</div>
-                    </li>
-                    <li>
-                        <span class="check-icon">✓</span> 
-                        <div><strong>Безпека:</strong> Миттєві сповіщення про стан інвертора та мережі.</div>
-                    </li>
-                </ul>
-                <a href="#demo" class="btn-primary">Спробувати демо-версію</a>
-            </div>
+            <div class="calculator-card">
+                <p class="calculator-desc">
+                    Тут ви можете швидко розрахувати приблизну потужність майбутньої сонячної електростанції.
+                    Якщо ви не знаєте площу даху або земельної ділянки, відкрийте карту та визначте її за допомогою інструментів Google Maps.
+                </p>
 
-            <div class="monitoring-visual">
-                <div class="dashboard-mockup">
-                    <div class="mockup-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+                <div class="calculator-actions">
+                    <!-- Используем твой класс контурной кнопки -->
+                    <a href="https://www.google.com/maps" target="_blank" class="btn-secondary">Відкрити Google Maps</a>
+                </div>
+
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="area">Площа ділянки або даху (м²)</label>
+                        <input type="number" id="area" placeholder="Наприклад: 120" min="1">
                     </div>
-                    <div class="mockup-body">
-                        <div class="widget-row">
-                            <div class="widget">
-                                <span class="widget-label">Поточна потужність</span>
-                                <span class="widget-value">15.4 кВт</span>
-                            </div>
-                            <div class="widget">
-                                <span class="widget-label">Статус інвертора</span>
-                                <span class="widget-value text-green">Онлайн</span>
-                            </div>
-                        </div>
-                        <div class="graph-placeholder">
-                            <p>Тут буде графік генерації (JS + REST API)</p>
-                        </div>
+                    <!-- Используем твой класс залитой кнопки -->
+                    <button id="calculateBtn" class="btn-submit">Розрахувати потужність</button>
+                </div>
+
+                <div class="calculator-result">
+                    <div class="result-item">
+                        <span>Корисна площа (95%):</span>
+                        <strong id="usableArea">0 м²</strong>
+                    </div>
+                    <div class="result-item">
+                        <span>Кількість панелей:</span>
+                        <strong id="panelCount">0 шт.</strong>
+                    </div>
+                    <div class="result-item highlight">
+                        <span>Орієнтовна потужність:</span>
+                        <strong id="totalPower">0 кВт</strong>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-
-
+    
 
     <!--СЕКЦИЯ 5: ПОЧЕМУ МЫ -->
 
