@@ -4,28 +4,6 @@
 }
 
 
-/* .brand {
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
-}
-
-.main-logo {
-    height: 200px;
-    width: 200px;
-    background-image: url('../images/logo_photo.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-
-.brand-name {
-    font-size: 32px; 
-    font-weight: bold; 
-    margin: 0; 
-    color: #333; 
-} */
-
 .side-panel {
     height: 100vh;
     width: 250px; 
@@ -91,12 +69,15 @@
     font-family: 'Arial', sans-serif; /* Базовый шрифт */
 }
 
+
+
 .brand {
     display: flex;
     align-items: center;
-    gap: 0px;
+    gap: 12px; /* Трохи збільшили відступ, щоб вмістилася іконка */
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
-
 .main-logo {
     height: 60px; 
     width: 60px;
@@ -106,22 +87,35 @@
     cursor: pointer;
 }
 
-.brand-name {
-    font-size: 28px;
-    font-weight: 800;
-    margin: 0; /* зачем margin 0*/
-    color: #0b2e59; 
-    cursor: pointer;
+/* Робимо легкий ефект при наведенні на всю цю область */
+.brand:hover {
+    opacity: 0.85;
 }
 
-.brand-name::after {
-    content: '';
-    position: relative;
-    left: 2px;
-    border: 6px solid transparent;
-    border-top-color: #888;
+/* Малюємо бургер-меню */
+.burger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    margin-right: 5px; /* Відступ від картинки логотипу */
 }
 
+/* Три смужки гамбургера */
+.burger-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #0b2e59; /* Твій фірмовий темно-синій */
+    border-radius: 3px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Коли користувач наводить мишку на бренд, смужки стають оранжевими */
+.brand:hover .burger-icon span {
+    background-color: #f28b0f;
+}
 
 .header-actions {
     display: flex;
@@ -130,14 +124,20 @@
 }
 
 
+
+
 .contact-phone {
-    display: block; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px; 
 }
-.phone {
-    font-size: 18px;
-    font-weight: bold;
+
+.contact-phone .phone {
+    text-decoration: none;
     color: #333;
-    margin: 2px 0;  
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap; /* Забороняє переносити текст на новий рядок! */
 }
 
 
@@ -972,17 +972,23 @@ main {
 }
 
 
-.footer .phone {
-    color: #ffffff;
+
+
+/* ВСТАВЬ ЭТО: Жорсткі стилі для посилань у футері */
+.footer-section a.phone {
+    color: #ffffff !important; 
+    text-decoration: none !important; 
 }
 
-.footer .email {
-    text-decoration: underline;
-    cursor: pointer;
+.footer-section a.email {
+    color: #d1dcf0 !important; 
+    text-decoration: none !important; 
+    font-size: 15px;
 }
 
-.footer .email:hover {
-    color: #f28b0f; 
+.footer-section a.phone:hover,
+.footer-section a.email:hover {
+    color: #f28b0f !important; 
 }
 
 /* Соцсети выстраиваем в ряд */
@@ -996,4 +1002,49 @@ main {
 .footer-brand .main-logo,
 .footer-brand .brand-name {
     cursor: default;
+}
+
+
+@media (max-width: 768px) {
+    
+    /* 1. ШАПКА: Прячем тяжелые элементы, оставляем только лого, бургер и язык */
+    .header {
+        padding: 0 15px; /* Уменьшаем боковые отступы */
+    }
+    .contact-phone, 
+    .social-link, 
+    .consultation-btn {
+        display: none; /* Скрываем телефоны, соцсети и кнопку на мобилках */
+    }
+    .header-actions {
+        gap: 15px;
+    }
+
+    /* 2. ГЛАВНЫЙ ЭКРАН (HERO): Уменьшаем гигантский шрифт */
+    .hero-title {
+        font-size: 30px; /* Было 46px */
+    }
+    .hero-subtitle {
+        font-size: 16px; /* Было 20px */
+        margin-bottom: 20px;
+    }
+
+    /* 3. СЕКЦИЯ CTA (Форма): Ставим форму ПОД текст, а не сбоку */
+    .cta-wrapper {
+        flex-direction: column; /* Выстраиваем элементы в колонку */
+        gap: 40px;
+    }
+    .cta-form-block {
+        max-width: 100%; /* Позволяем форме занять всю ширину телефона */
+        padding: 25px 20px; /* Делаем внутренние отступы формы чуть меньше */
+    }
+
+    /* 4. ФУТЕР: Выстраиваем колонки друг под другом */
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .footer {
+        padding: 40px 20px;
+    }
 }
