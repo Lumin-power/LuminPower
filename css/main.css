@@ -1011,10 +1011,11 @@ main {
     .header {
         padding: 0 15px; /* Уменьшаем боковые отступы */
     }
-    .contact-phone, 
-    .social-link, 
-    .consultation-btn {
-        display: none; /* Скрываем телефоны, соцсети и кнопку на мобилках */
+    /* Прячем элементы ТОЛЬКО внутри шапки (.header), футер при этом не пострадает */
+    .header .contact-phone, 
+    .header .social-link, 
+    .header .consultation-btn {
+        display: none; 
     }
     .header-actions {
         gap: 15px;

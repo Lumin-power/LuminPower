@@ -19,10 +19,11 @@
     </div>
 
 <header class="header">
-    <div id="logoTrigger" class="brand" title="Открыть меню">
-        <div class="main-logo"></div> 
-        <h1 class="brand-name">LuminPower</h1>
-    </div>
+     <div id="logoTrigger" class="brand" title="Відкрити меню">
+            <div class="main-logo"></div> 
+            <h1 class="brand-name">LuminPower</h1>
+        </div>
+
 
     <div class="header-actions">
         
@@ -114,43 +115,7 @@
 </section>
 </main>
 
-<script>
-    const calculateBtn = document.getElementById("calculateBtn");
 
-calculateBtn.addEventListener("click", () => {
-
-    const area = Number(
-        document.getElementById("area").value
-    );
-
-    if (!area || area <= 0) {
-        alert("Введіть площу ділянки");
-        return;
-    }
-
-    const usefulArea = area * 0.95;
-
-    const panelArea = 2.3;
-
-    const panelPower = 0.6;
-
-    const panelCount = Math.floor(
-        usefulArea / panelArea
-    );
-
-    const totalPower =
-        panelCount * panelPower;
-
-    document.getElementById("usableArea").textContent =
-        usefulArea.toFixed(1) + " м²";
-
-    document.getElementById("panelCount").textContent =
-        panelCount;
-
-    document.getElementById("totalPower").textContent =
-        totalPower.toFixed(1) + " кВт";
-});
-</script>
 
 <footer class="footer">
     <div class="footer-container">
