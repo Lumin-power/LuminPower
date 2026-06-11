@@ -77,7 +77,7 @@
 
         <article class="card">
 
-            <h2>CRM</h2>
+            <!-- <h2>CRM</h2>
 
             <p>
                 База клиентов, контакты,
@@ -90,14 +90,21 @@
 
             <a href="#">
                 Подробнее →
-            </a>
+            </a> -->
+
+            <div class="profile-section">
+    <h2>Нові заявки (CRM)</h2>
+    <div id="crmLeadsContainer" class="leads-grid">
+        <p style="color: #666;">Завантаження заявок...</p>
+    </div>
+</div>
 
         </article>
 
 
         <article class="card">
 
-            <h2>Склад</h2>
+            <!-- <h2>Склад</h2>
 
             <p>
                 Учёт оборудования, остатков,
@@ -110,10 +117,18 @@
 
             <a href="#">
                 Подробнее →
-            </a>
+            </a> -->
+            <h2>Склад</h2>
+            <p style="margin-bottom: 15px;">Учёт оборудования, остатков, поставок и списаний.</p>
+
+            <div id="warehouseContainer" class="leads-grid" style="max-height: 300px;">
+                <p style="color: #666;">Завантаження складу...</p>
+            </div>
 
         </article>
 
     </section>
 
 </main>
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
