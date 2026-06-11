@@ -1,123 +1,176 @@
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
     
-    const leadsContainer = document.getElementById('crmLeadsContainer');
+//     const leadsContainer = document.getElementById('crmLeadsContainer');
     
-    // Если мы не на странице профиля — ничего не делаем
-    if (!leadsContainer) return;
+//     // Если мы не на странице профиля — ничего не делаем
+//     if (!leadsContainer) return;
 
-    // Функция для загрузки заявок с сервера
-    async function fetchLeads() {
-        try {
-            // Стучимся на наш эндпоинт GET /api/crm/leads через Шлюз
-            const response = await fetch('http://localhost:8080/api/crm/leads');
+//     // Функция для загрузки заявок с сервера
+//     async function fetchLeads() {
+//         try {
+//             // Стучимся на наш эндпоинт GET /api/crm/leads через Шлюз
+//             const response = await fetch('http://localhost:8080/api/crm/leads');
             
-            if (!response.ok) {
-                throw new Error('Помилка сервера при отриманні заявок');
-            }
+//             if (!response.ok) {
+//                 throw new Error('Помилка сервера при отриманні заявок');
+//             }
 
-            const leads = await response.json();
-            renderLeads(leads);
+//             const leads = await response.json();
+//             renderLeads(leads);
             
-        } catch (error) {
-            console.error('Помилка:', error);
-            leadsContainer.innerHTML = '<p style="color: red;">❌ Не вдалося завантажити заявки.</p>';
-        }
-    }
+//         } catch (error) {
+//             console.error('Помилка:', error);
+//             leadsContainer.innerHTML = '<p style="color: red;">❌ Не вдалося завантажити заявки.</p>';
+//         }
+//     }
 
-    // Функция для отрисовки карточек с заявками
-    // Функция для отрисовки карточек с заявками
-    function renderLeads(leads) {
-        leadsContainer.innerHTML = ''; 
+//     // Функция для отрисовки карточек с заявками
+//     // Функция для отрисовки карточек с заявками
+//     function renderLeads(leads) {
+//         leadsContainer.innerHTML = ''; 
 
-        if (leads.length === 0) {
-            leadsContainer.innerHTML = '<p style="color: #666;">Нових заявок поки немає.</p>';
-            return;
-        }
+//         if (leads.length === 0) {
+//             leadsContainer.innerHTML = '<p style="color: #666;">Нових заявок поки немає.</p>';
+//             return;
+//         }
 
-        leads.forEach(lead => {
-            const leadCard = document.createElement('div');
-            leadCard.className = 'lead-card'; // Привязываем наш новый CSS класс!
+//         leads.forEach(lead => {
+//             const leadCard = document.createElement('div');
+//             leadCard.className = 'lead-card'; // Привязываем наш новый CSS класс!
 
-            const objectTypeName = lead.objectType === 'business' ? 'Для бізнесу' : 'Приватний будинок';
-            const statusClass = lead.status === 'NEW' ? 'new' : ''; 
+//             const objectTypeName = lead.objectType === 'business' ? 'Для бізнесу' : 'Приватний будинок';
+//             const statusClass = lead.status === 'NEW' ? 'new' : ''; 
 
-            leadCard.innerHTML = `
-                <h4>👤 ${lead.name}</h4>
-                <p><strong>📞 Телефон:</strong> <a href="tel:${lead.phone}" style="color: #2563eb; text-decoration: none;">${lead.phone}</a></p>
-                <p><strong>🏠 Об'єкт:</strong> ${objectTypeName}</p>
-                <p><strong>📌 Статус:</strong> <span class="status-badge ${statusClass}">${lead.status}</span></p>
-                <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af;">
-                    🕒 Створено: ${new Date(lead.createdAt).toLocaleString('uk-UA')}
-                </div>
-            `;
+//             leadCard.innerHTML = `
+//                 <h4>👤 ${lead.name}</h4>
+//                 <p><strong>📞 Телефон:</strong> <a href="tel:${lead.phone}" style="color: #2563eb; text-decoration: none;">${lead.phone}</a></p>
+//                 <p><strong>🏠 Об'єкт:</strong> ${objectTypeName}</p>
+//                 <p><strong>📌 Статус:</strong> <span class="status-badge ${statusClass}">${lead.status}</span></p>
+//                 <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af;">
+//                     🕒 Створено: ${new Date(lead.createdAt).toLocaleString('uk-UA')}
+//                 </div>
+//             `;
             
-            leadsContainer.appendChild(leadCard);
-        });
-    }
+//             leadsContainer.appendChild(leadCard);
+//         });
+//     }
 
-    // Запускаем загрузку сразу при открытии страницы
-    fetchLeads();
+//     // Запускаем загрузку сразу при открытии страницы
+//     fetchLeads();
 
 
-    // --- ЛОГИКА СКЛАДА ---
-    const warehouseContainer = document.getElementById('warehouseContainer');
+//     // --- ЛОГИКА СКЛАДА ---
+//     const warehouseContainer = document.getElementById('warehouseContainer');
 
-    async function fetchWarehouse() {
-        if (!warehouseContainer) return;
+//     async function fetchWarehouse() {
+//         if (!warehouseContainer) return;
         
-        try {
-            // Стучимся на склад через Шлюз
-            const response = await fetch('http://localhost:8080/api/warehouse/items');
+//         try {
+//             // Стучимся на склад через Шлюз
+//             const response = await fetch('http://localhost:8080/api/warehouse/items');
             
-            if (!response.ok) {
-                throw new Error('Помилка сервера');
-            }
+//             if (!response.ok) {
+//                 throw new Error('Помилка сервера');
+//             }
 
-            const items = await response.json();
-            renderWarehouse(items);
+//             const items = await response.json();
+//             renderWarehouse(items);
             
-        } catch (error) {
-            console.error('Помилка:', error);
-            warehouseContainer.innerHTML = '<p style="color: red;">❌ Не вдалося завантажити склад.</p>';
-        }
+//         } catch (error) {
+//             console.error('Помилка:', error);
+//             warehouseContainer.innerHTML = '<p style="color: red;">❌ Не вдалося завантажити склад.</p>';
+//         }
+//     }
+
+//     function renderWarehouse(items) {
+//         warehouseContainer.innerHTML = ''; 
+
+//         if (items.length === 0) {
+//             warehouseContainer.innerHTML = '<p style="color: #666;">Склад порожній.</p>';
+//             return;
+//         }
+
+//         // Словарь для перевода категорий на понятный язык
+//         const categoryMap = {
+//             'INVERTER': 'Інвертор',
+//             'PANEL': 'Сонячна панель',
+//             'BATTERY': 'Акумулятор',
+//             'CABLE': 'Кабель та комплектуючі'
+//         };
+
+//         items.forEach(item => {
+//             const itemCard = document.createElement('div');
+//             itemCard.className = 'lead-card';
+//             itemCard.style.borderLeftColor = '#10b981'; // Изумрудно-зеленая полоска для склада
+
+//             const categoryName = categoryMap[item.category] || item.category;
+
+//             itemCard.innerHTML = `
+//                 <h4 style="margin-bottom: 5px;">📦 ${item.name}</h4>
+//                 <p style="margin: 5px 0;"><strong>Категорія:</strong> ${categoryName}</p>
+//                 <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+//                     <span>Залишок на складі:</span>
+//                     <span style="font-size: 18px; font-weight: bold; color: #10b981;">${item.quantity} шт.</span>
+//                 </div>
+//             `;
+            
+//             warehouseContainer.appendChild(itemCard);
+//         });
+//     }
+
+//     // Запускаем загрузку склада вместе с загрузкой заявок
+//     fetchWarehouse();
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = 'login.html';
+        return;
     }
 
-    function renderWarehouse(items) {
-        warehouseContainer.innerHTML = ''; 
-
-        if (items.length === 0) {
-            warehouseContainer.innerHTML = '<p style="color: #666;">Склад порожній.</p>';
-            return;
+    // Загрузка CRM — максимально упрощенный синтаксис
+    fetch('http://localhost:8080/api/crm/leads', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
         }
+    })
+    .then(r => r.json())
+    .then(data => renderLeads(data))
+    .catch(e => console.error("Ошибка CRM:", e));
 
-        // Словарь для перевода категорий на понятный язык
-        const categoryMap = {
-            'INVERTER': 'Інвертор',
-            'PANEL': 'Сонячна панель',
-            'BATTERY': 'Акумулятор',
-            'CABLE': 'Кабель та комплектуючі'
-        };
+    // Загрузка Склада — максимально упрощенный синтаксис
+    fetch('http://localhost:8080/api/warehouse/items', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(r => r.json())
+    .then(data => renderWarehouse(data))
+    .catch(e => console.error("Ошибка Склада:", e));
 
-        items.forEach(item => {
-            const itemCard = document.createElement('div');
-            itemCard.className = 'lead-card';
-            itemCard.style.borderLeftColor = '#10b981'; // Изумрудно-зеленая полоска для склада
+    // ... (твой код fetch остается)
 
-            const categoryName = categoryMap[item.category] || item.category;
+// ВЕРНИ ЭТИ ФУНКЦИИ В КОНЕЦ ФАЙЛА, ИНАЧЕ ДАННЫЕ НЕ ОТОБРАЗЯТСЯ
+function renderLeads(leads) {
+    const leadsContainer = document.getElementById('crmLeadsContainer');
+    leadsContainer.innerHTML = ''; 
+    leads.forEach(lead => {
+        const div = document.createElement('div');
+        div.innerHTML = `<h4>👤 ${lead.name}</h4><p>${lead.phone}</p>`;
+        leadsContainer.appendChild(div);
+    });
+}
 
-            itemCard.innerHTML = `
-                <h4 style="margin-bottom: 5px;">📦 ${item.name}</h4>
-                <p style="margin: 5px 0;"><strong>Категорія:</strong> ${categoryName}</p>
-                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
-                    <span>Залишок на складі:</span>
-                    <span style="font-size: 18px; font-weight: bold; color: #10b981;">${item.quantity} шт.</span>
-                </div>
-            `;
-            
-            warehouseContainer.appendChild(itemCard);
-        });
-    }
-
-    // Запускаем загрузку склада вместе с загрузкой заявок
-    fetchWarehouse();
+function renderWarehouse(items) {
+    const warehouseContainer = document.getElementById('warehouseContainer');
+    warehouseContainer.innerHTML = '';
+    items.forEach(item => {
+        const div = document.createElement('div');
+        div.innerHTML = `<h4>📦 ${item.name}</h4><p>${item.quantity} шт.</p>`;
+        warehouseContainer.appendChild(div);
+    });
+}
 });
